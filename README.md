@@ -33,10 +33,10 @@ and re-run the command 11.
   - npm start // to start the development server
 
 ## Endpoints on the UI
-  ### Admin Endpoints
-    - /loginAdmin (admin login)
-    - /addAirport
-    - /addFlight
+  ### Admin Endpoints (append the links to the base url ending with index.html)
+    - #/loginAdmin (admin login)  --> Final url should be like https://fbs-frontend-v3.cfapps.eu12.hana.ondemand.com/index.html#/loginAdmin
+    - #/addAirport
+    - #/addFlight
   ### Admin credentials
     visit https://fbs-frontend-v3.cfapps.eu12.hana.ondemand.com/index.html#/loginAdmin and enter the following credentials to login as admin.
     username = admin

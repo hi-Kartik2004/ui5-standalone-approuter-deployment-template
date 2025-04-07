@@ -1,0 +1,183 @@
+<mvc:View
+    xmlns:f="sap.f"
+    controllerName="ui5.rest.restwithui5.controller.AddAirport"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    displayBlock="true"
+    height="100%"
+    busyIndicatorDelay="0"
+>
+    <f:DynamicPage
+        backgroundDesign="List"
+        fitContent="false"
+        headerExpanded="true"
+        headerPinned="false"
+        preserveHeaderStateOnScroll="false"
+        showFooter="false"
+        toggleHeaderOnTitleClick="true"
+    >
+        <f:content>
+            <VBox class="sapUiMediumMarginTop">
+                <Title
+                    text="{i18n>AddAirportView.FormTitle}"
+                    level="H1"
+                />
+
+                <Label
+                    wrapping="true"
+                    text="{i18n>AddAirportView.FormDesciption}"
+                />
+
+                <mvc:XMLView
+                    viewName="ui5.rest.restwithui5.view.Underline"
+                    type="XML"
+                    class="sapUiTinyMarginTop sapUiTinyMarginBottom"
+                />
+
+                <HBox
+                    class="gap-2 sapUiSmallMarginTop"
+                    wrap="Wrap"
+                    alignItems="Center"
+                >
+                    <VBox>
+                        <Label text="{i18n>AddAirportView.AirportName}" />
+                        <Input
+                            type="text"
+                            placeholder="{i18n>AddAirportView.EnterAirportName}"
+                            width="200px"
+                            value="{formModel>/airportName}"
+                        />
+                        <Text
+                            text="{formModel>/errors/airportName}"
+                            class="text-red"
+                        />
+                    </VBox>
+
+                    <VBox>
+                        <Label text="{i18n>AddAirportView.City}" />
+                        <Input
+                            type="Text"
+                            placeholder="{i18n>AddAirportView.EnterAirportCity}"
+                            width="200px"
+                            value="{formModel>/city}"
+                        />
+                        <Text
+                            text="{formModel>/errors/city}"
+                            class="text-red"
+                        />
+                    </VBox>
+
+                    <VBox>
+                        <Label text="{i18n>AddAirportView.Pincode}" />
+                        <Input
+                            type="Number"
+                            placeholder="{i18n>AddAirportView.EnterCityPincode}"
+                            width="200px"
+                            value="{formModel>/pincode}"
+                        />
+                        <Text
+                            text="{formModel>/errors/pincode}"
+                            class="text-red"
+                        />
+                    </VBox>
+
+                    <VBox>
+                        <Label text="{i18n>AddAirportView.Country}" />
+                        <Input
+                            type="Text"
+                            placeholder="{i18n>AddAirportView.EnterAirportCountry}"
+                            width="200px"
+                            value="{formModel>/country}"
+                        />
+                        <Text
+                            class="text-red"
+                            text="{formModel>/errors/country}"
+                        />
+                    </VBox>
+
+                    <VBox>
+                        <Label text="{i18n>AddAirportView.State}" />
+                        <Input
+                            type="text"
+                            placeholder="{i18n>AddAirportView.EnterAirportState}"
+                            width="200px"
+                            value="{formModel>/state}"
+                        />
+                        <Text
+                            text="{formModel>/errors/state}"
+                            class="text-red"
+                        />
+                    </VBox>
+
+                    <VBox>
+                        <Label text="{i18n>AddAirportView.AirportCode}" />
+                        <Input
+                            type="text"
+                            placeholder="{i18n>AddAirportView.EnterAirportCode}"
+                            width="200px"
+                            value="{formModel>/airportCode}"
+                        />
+                        <Text
+                            text="{formModel>/errors/airportCode}"
+                            class="text-red"
+                        />
+                    </VBox>
+
+                    <VBox>
+                        <Label text="{i18n>AddAirportView.AirportTimezone}" />
+                        <Input
+                            type="text"
+                            placeholder="{i18n>AddAirportView.EnterTimezone}"
+                            width="200px"
+                            value="{formModel>/timezone}"
+                        />
+                        <Text
+                            text="{formModel>/errors/timezone}"
+                            class="text-red"
+                        />
+                    </VBox>
+
+                    <VBox>
+                        <Label text="{i18n>AddAirportView.Address}" />
+                        <TextArea
+                            type="Text"
+                            placeholder="{i18n>AddAirportView.EnterAirportAddress}"
+                            width="200px"
+                            value="{formModel>/addr}"
+                        />
+                        <Text
+                            text="{formModel>/errors/addr}"
+                            class="text-red"
+                        />
+                    </VBox>
+
+                    <Button
+                        text="{i18n>AddAirportView.AddAirport}"
+                        icon="sap-icon://add-activity"
+                        type="Emphasized"
+                        press="addAirportButtonPress"
+                    />
+                </HBox>
+
+                <mvc:View
+                    type="XML"
+                    viewName="ui5.rest.restwithui5.view.Underline"
+                />
+
+                <VBox class="">
+                    <mvc:View
+                        viewName="ui5.rest.restwithui5.view.components.AllAirportTable"
+                        type="XML"
+                    >
+                        <mvc:content />
+                    </mvc:View>
+                </VBox>
+            </VBox>
+        </f:content>
+        <f:footer />
+        <f:header />
+        <f:landmarkInfo />
+        <f:title />
+    </f:DynamicPage>
+</mvc:View>

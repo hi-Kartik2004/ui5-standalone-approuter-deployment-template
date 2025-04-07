@@ -1,0 +1,90 @@
+<mvc:View
+    xmlns:f="sap.ui.layout.form"
+    controllerName="ui5.rest.restwithui5.controller.Login"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    height="100%"
+    busyIndicatorDelay="0"
+    xmlns:l="sap.ui.layout"
+>
+    <Page class="-mt-4">
+        <content>
+            <VBox>
+                <f:SimpleForm
+                    id="LoginForm"
+                    editable="true"
+                    title="Login to Proceed"
+                    class="sapUiSmallMarginTop max-w-sm mx-auto flightCard"
+                >
+                    <f:content>
+                        <VBox class="max-w-xs mx-auto">
+                            <VBox>
+                                <Label text="{i18n>LoginView.Username}" />
+                                <Input
+                                    id="name"
+                                    value="{/username}"
+                                    showClearIcon="true"
+                                    name="username"
+                                    required="true"
+                                />
+                            </VBox>
+                            <VBox class="sapUiSmallMarginTop">
+                                <Label text="{i18n>LoginView.Password}" />
+                                <Input
+                                    value="{/password}"
+                                    type="Password"
+                                    change="onStreetInputChange"
+                                    name="password"
+                                    showClearIcon="true"
+                                    required="true"
+                                />
+                            </VBox>
+
+                            <CheckBox
+                                text="{i18n>LoginView.ByContinuingToOurSiteYouAgreeToOurTermsAndConditions}"
+                                class="sapUiTinyMarginTop"
+                                selected="true"
+                                wrapping="true"
+                                valueState="Information"
+                                name="terms"
+                                enabled="false"
+                            />
+
+                            <Button
+                                activeIcon=""
+                                ariaHasPopup="None"
+                                icon="sap-icon://begin"
+                                iconDensityAware="true"
+                                iconFirst="true"
+                                text="{i18n>LoginView.Login}"
+                                textDirection="Inherit"
+                                type="Emphasized"
+                                width="100%"
+                                class="sapUiTinyMarginTop "
+                                press="handleFormSubmit"
+                            />
+
+                            <HBox
+                                justifyContent="SpaceBetween"
+                                class="sapUiSmallMarginTop"
+                            >
+                                <Link
+                                    href="/index.html#/signup"
+                                    text="{i18n>LoginView.NotRegistered}"
+                                />
+
+                                <Link
+                                    href="https://sap.com"
+                                    text="{i18n>LoginView.PrivacyPolicy}"
+                                    target="_blank"
+                                />
+                            </HBox>
+                        </VBox>
+                    </f:content>
+                </f:SimpleForm>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

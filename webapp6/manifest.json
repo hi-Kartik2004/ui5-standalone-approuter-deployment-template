@@ -1,0 +1,173 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "ui5.rest.restwithui5",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.4",
+            "toolsId": "0e62d27d-6802-4131-9cac-eb005295c3b3"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "resources/images/icon.png",
+            "favIcon": "resources/images/favicon.ico",
+            "phone": "resources/images/phoneIcon.png",
+            "phone@2": "resources/images/phoneRetinaIcon.png",
+            "tablet": "resources/images/tabletIcon.png",
+            "tablet@2": "resources/images/tabletRetinaIcon.png"
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.133.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ui5.rest.restwithui5.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "resourceRoots": {
+            "my.app.images": "./resources/images/"
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "ui5.rest.restwithui5.view",
+                "async": true,
+                "viewPath": "ui5.rest.restwithui5.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteInitial",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetInitial"
+                    ]
+                },
+                {
+                    "name": "detail",
+                    "pattern": "detail?flightId={flightId}",
+                    "target": [
+                        "Detail"
+                    ]
+                },
+                {
+                    "name": "searchFlights",
+                    "pattern": "searchFlights?srcCode={srcCode}&destCode={destCode}&date={date}",
+                    "target": [
+                        "SearchFlights"
+                    ]
+                },
+                {
+                    "name": "Booking",
+                    "pattern": "booking",
+                    "target": [
+                        "Booking"
+                    ]
+                },
+                {
+                    "name": "login",
+                    "pattern": "login",
+                    "target": [
+                        "Login"
+                    ]
+                },
+                {
+                    "name": "loginAdmin",
+                    "pattern": "loginAdmin",
+                    "target": [
+                        "Login"
+                    ]
+                },
+                {
+                    "name": "signup",
+                    "pattern": "signup",
+                    "target": [
+                        "Signup"
+                    ]
+                },
+                {
+                    "name": "addAirport",
+                    "pattern": "addAirport",
+                    "target": [
+                        "AddAirport"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetInitial": {
+                    "viewName": "Initial",
+                    "viewType": "XML"
+                },
+                "Detail": {
+                    "viewName": "Detail",
+                    "viewType": "XML"
+                },
+                "SearchFlights": {
+                    "viewName": "SearchFlights",
+                    "viewType": "XML"
+                },
+                "Booking": {
+                    "viewName": "Booking",
+                    "viewType": "XML"
+                },
+                "Login": {
+                    "viewName": "Login",
+                    "viewType": "XML"
+                },
+                "Signup": {
+                    "viewName": "Signup",
+                    "viewType": "XML"
+                },
+                "AddAirport": {
+                    "viewName": "AddAirport",
+                    "viewType": "XML"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "ui5.rest.restwithui5.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

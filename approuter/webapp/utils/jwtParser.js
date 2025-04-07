@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/base/ManagedObject"],function(e){"use strict";return function(e){if(!e){console.error("JWT token not presnent");return}try{const r=e.split(".");if(r.length!==3){throw new Error("JWT must have 3 parts")}const t=r[1];const n=t.replace(/-/g,"+").replace(/_/g,"/");const o=JSON.parse(window.atob(n));return o}catch(e){console.error("Failed to parse JWT:",e);return null}}});
+//# sourceMappingURL=jwtParser.js.map

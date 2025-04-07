@@ -1,0 +1,93 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+>
+    <Dialog title="Passenger Details">
+        <content>
+            <Table
+                id="passengerTable"
+                items="{/passengers}"
+                class="p-2 max-w-md"
+            >
+                <headerToolbar>
+                    <Toolbar>
+                        <Title
+                            text="Passengers List"
+                            level="H2"
+                        />
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <Text text="Name" />
+                    </Column>
+                    <Column>
+                        <Text text="ID's Proof" />
+                    </Column>
+                    <Column>
+                        <Text text="Age" />
+                    </Column>
+                    <Column>
+                        <Text text="Seat" />
+                    </Column>
+                    <Column>
+                        <Text text="Actions" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{name}" />
+                            <Text text="{idProof}" />
+                            <Text text="{age} years" />
+                            <Text text="{seat}" />
+                            <VBox wrap="Wrap">
+                                <Button
+                                    text="{= ${cancelled} ? 'Cancelled Seat' : 'Add to cancel list'}"
+                                    type="Attention"
+                                    press="addSeatToCancelList"
+                                    visible="{= ${included} ? false : true}"
+                                    enabled="{= ${cancelled} ? false : true}"
+                                />
+
+                                <Button
+                                    text="Remove from list"
+                                    type="Accept"
+                                    press="removeSeatToCancelList"
+                                    visible="{= ${included} ? true : false}"
+                                />
+                            </VBox>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <VBox class="p-2">
+                <Text
+                    text="Refunds: {path: 'refunds', formatter: '.splitWithPlus'} => {path:'refunds', formatter: '.sumOf'}"
+                />
+            </VBox>
+        </content>
+
+        <buttons>
+            <Button
+                text="Cancel seats"
+                type="Reject"
+                press="cancelSeats"
+            />
+            <Button
+                text="Cancel booking"
+                type="Negative"
+                press="cancelBooking"
+                enabled="{path: 'bookedSeats', formatter: '.isListNotEmpty'}"
+            />
+            <Button
+                text="Close"
+                press="onCloseDialog"
+            />
+        </buttons>
+
+        <!-- <endButton />
+        <beginButton /> -->
+    </Dialog>
+</c:FragmentDefinition>

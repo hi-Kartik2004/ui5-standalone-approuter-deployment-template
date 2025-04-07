@@ -1,0 +1,123 @@
+<mvc:View
+    controller="ui5.rest.restwithui5.controller.About"
+    xmlns="sap.uxap"
+    xmlns:m="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    height="100%"
+>
+    <m:VBox fitContainer="true">
+        <ObjectPageLayout
+            id="ObjectPageLayout"
+            upperCaseAnchorBar="false"
+        >
+            <sections>
+                <ObjectPageSection
+                    titleUppercase="false"
+                    title="About"
+                >
+                    <subSections>
+                        <ObjectPageSubSection
+                            titleUppercase="true"
+                            title="About"
+                        >
+                            <m:Text
+                                text="This flight booking system is a comprehensive platform that enables users to search, book, and manage flights seamlessly, while offering administrative controls to manage airports, flights, and bookings. Users can sign up, log in, select seats, make bookings, and view their flight details, while admins have the ability to add, edit, and delete airports and flights, as well as view and manage all user bookings. Key features also include filtering flights, seat cancellations, and booking modifications, making the system both user-friendly and flexible for a smooth flight reservation experience."
+                            />
+                        </ObjectPageSubSection>
+                    </subSections>
+                </ObjectPageSection>
+                <ObjectPageSection
+                    titleUppercase="true"
+                    title="Features"
+                >
+                    <subSections>
+                        <ObjectPageSubSection titleUppercase="true">
+                            <m:VBox class="gap-2">
+                                <m:layoutData>
+                                    <m:FlexItemData maxWidth="400px" />
+                                </m:layoutData>
+                                <m:Text
+                                    text="The flight booking system provides users with an intuitive interface to easily search for available flights, select seats, and complete bookings. Users can sign up for an account, log in, and access their booking history. They can filter flights based on various criteria such as destination, date, and price, allowing them to find the most suitable options. Once a flight is selected, users can choose their seats, and view their bookings. Additionally, users can manage their bookings, cancel seats, or even cancel the entire booking, all within their personal dashboard.
+        "
+                                />
+                                <m:HBox
+                                    wrap="Wrap"
+                                    justifyContent="SpaceAround"
+                                >
+                                    <m:HBox class="max-w-sm">
+                                        <m:Image
+                                            src="images/flight.jpg"
+                                            alt="features-logo"
+                                            height="250px"
+                                            width="100%"
+                                            class="flightCard"
+                                        />
+                                    </m:HBox>
+                                    <m:HBox class="max-w-sm">
+                                        <m:Image
+                                            src="/images/pilot.jpg"
+                                            alt="features-logo"
+                                            height="250px"
+                                            class="flightCard"
+                                            width="100%"
+                                        />
+                                    </m:HBox>
+                                </m:HBox>
+                                <m:Text
+                                    text="The admin panel offers a comprehensive set of tools to manage the entire flight booking system. Admins can add, edit, and delete airports, ensuring that the platform stays up-to-date with accurate flight options. They have full control over airports and flight schedules, allowing them to add new airports, update existing ones, or remove airports as needed. While they can also add Flights the application's logic takes care of over schedulings of aircrafts.
+        "
+                                />
+                                <m:Text
+                                    text="The system also supports essential functionalities for a seamless user experience, such as the ability to filter flights based on various parameters like date, airline, and no. of seats available. Users can make secure bookings with an easy-to-use seat selection process. The system’s flexible booking management allows for modifications and cancellations of bookings, ensuring customers have full control over their travel plans. Furthermore, the system integrates strong user authentication via JWT and role-based access control, ensuring that user data remains secure and admins have the necessary permissions to manage the platform effectively.
+        "
+                                />
+                            </m:VBox>
+                        </ObjectPageSubSection>
+                    </subSections>
+                </ObjectPageSection>
+                <ObjectPageSection
+                    titleUppercase="true"
+                    title="Reviews"
+                >
+                    <subSections>
+                        <ObjectPageSubSection titleUppercase="true">
+                            <l:VerticalLayout
+                                class="sapUiContentPadding"
+                                width="100%"
+                            >
+                                <l:content>
+                                    <m:List
+                                        headerText="Temporary Feed Entries (This will be updated soon!)"
+                                        items="{feed>/EntryCollection}"
+                                    >
+                                        <m:items>
+                                            <m:FeedListItem
+                                                sender="{feed>Author}"
+                                                icon="{feed>AuthorPicUrl}"
+                                                iconPress="onPress"
+                                                senderPress="onPress"
+                                                info="{feed>Type}"
+                                                timestamp="{feed>Date}"
+                                                text="{feed>Text}"
+                                            >
+                                                <!-- <m:customActions>
+                                                    <m:FeedListItemAction
+                                                        text="{feed>Text}"
+                                                        icon="{feed>Icon}"
+                                                        key="{feed>Key}"
+                                                        press="onActionPressed"
+                                                    />
+                                                </m:customActions> -->
+                                            </m:FeedListItem>
+                                        </m:items>
+                                    </m:List>
+                                </l:content>
+                            </l:VerticalLayout>
+                        </ObjectPageSubSection>
+                    </subSections>
+                </ObjectPageSection>
+            </sections>
+        </ObjectPageLayout>
+    </m:VBox>
+</mvc:View>

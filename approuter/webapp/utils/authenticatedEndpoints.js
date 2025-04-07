@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/base/ManagedObject","ui5/rest/restwithui5/utils/jwtParser"],function(e,t){"use strict";return function e(n){const o=window.localStorage.getItem("FBS_token");if(o==null){return false}const i=t(o);console.log("Claims from jwtToken",i);if(i.exp>Date.now()/1e3){console.log("Token is still valid");n.onNavBack()}return true}});
+//# sourceMappingURL=authenticatedEndpoints.js.map

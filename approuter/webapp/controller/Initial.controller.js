@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(t){"use strict";return t.extend("ui5.rest.restwithui5.controller.Initial",{onInit:function(){console.log("Init called")},onButtonPress:function(){const t=this.getOwnerComponent().getRouter();t.navTo("Details",{srcCode:sourceAirportCode,destCode:destinationAirportCode,date:departureDate})}})});
+//# sourceMappingURL=Initial.controller.js.map

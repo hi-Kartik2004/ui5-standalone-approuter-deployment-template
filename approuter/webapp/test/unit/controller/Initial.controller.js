@@ -1,0 +1,2 @@
+sap.ui.define(["ui5rest/restwithui5/controller/Initial.controller"],function(t){"use strict";QUnit.module("Initial Controller");QUnit.test("I should test the Initial controller",function(i){var n=new t;n.onInit();i.ok(n)})});
+//# sourceMappingURL=Initial.controller.js.map

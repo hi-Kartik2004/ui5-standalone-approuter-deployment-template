@@ -1,0 +1,11 @@
+<mvc:View
+    controllerName="ui5.rest.restwithui53.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <mvc:XMLView viewName="ui5.rest.restwithui53.view.ShellBar" />
+    <Shell>
+        <App id="app" />
+    </Shell>
+</mvc:View>

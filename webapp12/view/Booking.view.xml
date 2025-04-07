@@ -1,0 +1,271 @@
+<mvc:View
+    xmlns:form="sap.ui.layout.form"
+    xmlns:f="sap.f"
+    controllerName="ui5.rest.restwithui5.controller.Booking"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    displayBlock="true"
+    height="100%"
+    busyIndicatorDelay="0"
+>
+    <f:DynamicPage
+        backgroundDesign="List"
+        fitContent="false"
+        headerExpanded="true"
+        headerPinned="false"
+        preserveHeaderStateOnScroll="false"
+        showFooter="false"
+        toggleHeaderOnTitleClick="true"
+    >
+        <f:content>
+            <VBox
+                alignItems="Center"
+                width="100%"
+                class="sapUiLargeMarginBottom "
+            >
+                <List
+                    backgroundDesign="Solid"
+                    items="{/bookings}"
+                    id="bookingsList"
+                >
+                    <headerToolbar>
+                        <Toolbar height="100%">
+                            <HBox
+                                wrap="Wrap"
+                                alignItems="Center"
+                                justifyContent="SpaceBetween"
+                                width="100%"
+                                class="p-2 gap-4"
+                            >
+                                <Title
+                                    text="{i18n>Quick Search}"
+                                    wrapping="true"
+                                    class=""
+                                />
+                                <!-- <ToolbarSpacer /> -->
+
+                                <HBox
+                                    wrap="Wrap"
+                                    alignItems="Center"
+                                    justifyContent="SpaceBetween"
+                                    class="gap-2"
+                                >
+                                    <!-- <layoutData>
+                                        <FlexItemData maxWidth="100px" />
+                                    </layoutData> -->
+                                    <Input
+                                        placeholder="Search based on Company"
+                                        width="200px"
+                                        class="max-w-sm"
+                                        value="{/queryCompany}"
+                                    />
+
+                                    <Input
+                                        placeholder="Search based on Source City"
+                                        width="200px"
+                                        class="max-w-xs"
+                                        value="{/querySourceCity}"
+                                    />
+
+                                    <Input
+                                        placeholder="Search on destination City"
+                                        width="200px"
+                                        class="max-w-xs"
+                                        value="{/queryDestCity}"
+                                    />
+
+                                    <Button
+                                        type="Neutral"
+                                        text="Filter"
+                                        icon="sap-icon://filter"
+                                        press="onFilterButtonPress"
+                                    />
+                                </HBox>
+                            </HBox>
+
+                            <!-- <SearchField
+                                placeholder="Search based on Company"
+                                width="50%"
+                                search=".onBookingFilter"
+                                class="max-w-xs"
+                            />
+
+                            <SearchField
+                                placeholder="Search based on source Airports"
+                                width="50%"
+                                search=".onAirportFilter"
+                                class="max-w-xs"
+                            /> -->
+                        </Toolbar>
+                    </headerToolbar>
+                    <CustomListItem>
+                        <HBox
+                            class="sapUiSmallMargin gap-2 flightCard hover-shadow max-w-lg"
+                            alignItems="Center"
+                            justifyContent="SpaceAround"
+                            wrap="Wrap"
+                            width="100%"
+                        >
+                            <layoutData>
+                                <FlexItemData maxWidth="747px" />
+                            </layoutData>
+                            <HBox
+                                width="100%"
+                                justifyContent="SpaceBetween"
+                            >
+                                <Text text="Booking Id: {bookingId}" />
+
+                                <Text
+                                    text="Seats booked: {= ${bookedSeats}}"
+                                    class="mt-1"
+                                    visible="{path:'bookedSeats', formatter: '.isListNotEmpty' }"
+                                />
+                            </HBox>
+                            <FlexBox
+                                class="gap-2"
+                                alignItems="Center"
+                                wrap="Wrap"
+                            >
+                                <Image
+                                    src="{flight/companyLogoUrl}"
+                                    alt="Flight_operator_logo"
+                                    width="45px"
+                                />
+                                <VBox>
+                                    <Text text="{flight/company}" />
+                                    <Text text="{flight/flightName}" />
+                                </VBox>
+                            </FlexBox>
+                            <FlexBox class="gap-2">
+                                <FlexBox
+                                    direction="Column"
+                                    justifyContent="Center"
+                                    alignItems="Center"
+                                    wrap="Wrap"
+                                >
+                                    <Text
+                                        text="{path: 'flight/departureDateTimeLocal', formatter: '.formatDate'}"
+                                        class="size-1"
+                                    />
+                                    <Label
+                                        text="{flight/sourceAirport/city} ({flight/sourceAirport/airportCode})"
+                                        class="sapUiTinyMarginTop"
+                                    />
+                                </FlexBox>
+
+                                <FlexBox
+                                    direction="Column"
+                                    alignItems="Center"
+                                    justifyContent="Center"
+                                    height="100%"
+                                    class="sapUiTinyMarginBottom"
+                                    wrap="Wrap"
+                                >
+                                    <Text
+                                        text="{parts :['flight/departureDateTimeLocal', 'flight/arrivalDateTimeLocal'], formatter: '.getDuration'} hrs"
+                                        class="size-1"
+                                    />
+                                    <VBox
+                                        width="80px"
+                                        height="2px"
+                                        class="bg-blue mt-1"
+                                    />
+                                </FlexBox>
+
+                                <FlexBox
+                                    direction="Column"
+                                    justifyContent="Center"
+                                    alignItems="Center"
+                                    wrap="Wrap"
+                                >
+                                    <Text
+                                        text="{path: 'flight/arrivalDateTimeLocal', formatter: '.formatDate'}"
+                                        class="size-1"
+                                    />
+                                    <Label
+                                        text="{flight/destinationAirport/city} ({flight/destinationAirport/airportCode})"
+                                        class="sapUiTinyMarginTop"
+                                    />
+                                </FlexBox>
+                            </FlexBox>
+
+                            <FlexBox
+                                class="gap-2"
+                                wrap="Wrap"
+                            >
+                                <FlexBox
+                                    direction="Column"
+                                    alignItems="Center"
+                                >
+                                    <Text
+                                        text="Rs {amount}/-"
+                                        class="size-2"
+                                    />
+                                    <Label
+                                        text="Total Amount paid"
+                                        class="mt-1"
+                                    />
+                                </FlexBox>
+                            </FlexBox>
+                            <VBox>
+                                <Button
+                                    text="View Details"
+                                    class="flightButton mt-1"
+                                    type="Emphasized"
+                                    icon="sap-icon://detail-more"
+                                    iconFirst="false"
+                                    press="onViewDetailsPress"
+                                />
+
+                                <Label
+                                    text="Status: {bookingStatus}"
+                                    wrapping="true"
+                                    class="mt-1"
+                                />
+
+                                <!-- <Label
+                                    text="Refunds: {refunds}"
+                                    wrapping="true"
+                                    class="mt-1"
+                                /> -->
+                            </VBox>
+                        </HBox>
+                    </CustomListItem>
+                </List>
+            </VBox>
+        </f:content>
+        <f:footer />
+        <f:header>
+            <f:DynamicPageHeader
+                backgroundDesign=""
+                pinnable="false"
+            >
+                <f:content>
+                    <HBox justifyContent="SpaceBetween">
+                        <VBox>
+                            <Title text="{/user/name}'s Bookings" />
+                            <Label
+                                text="Please find all your bookings below"
+                                wrapping="true"
+                            />
+                        </VBox>
+
+                        <VBox alignItems="End">
+                            <Title
+                                text="{=  ${/bookings}.length} Bookings Found"
+                                class="text-green"
+                            />
+                            <Label
+                                text="75% of expected amount is refunded on cancellation"
+                                wrapping="true"
+                            />
+                        </VBox>
+                    </HBox>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:landmarkInfo />
+        <f:title />
+    </f:DynamicPage>
+</mvc:View>

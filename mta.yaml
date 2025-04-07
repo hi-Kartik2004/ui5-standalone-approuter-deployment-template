@@ -1,0 +1,25 @@
+ID: ui5-approuter
+_schema-version: 3.2.0
+version: 1.1.8
+parameters:
+  enable-parallel-deployments: true
+
+modules:
+  - name: fbs-approuter
+    type: approuter.nodejs
+    path: ./approuter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+      routes:
+        - route: fbs-frontend-v3.cfapps.eu12.hana.ondemand.com	
+    requires:
+      - name: html5-destination
+
+resources:
+  - name: html5-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+      path: ./destinations.json

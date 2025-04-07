@@ -1,0 +1,78 @@
+<mvc:View
+    controllerName="ui5.rest.restwithui5.controller.AircraftStructure"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    displayBlock="true"
+    height="100%"
+    busyIndicatorDelay="0"
+>
+    <VBox
+        class="mx-auto flightCard "
+        backgroundDesign="Solid"
+    >
+        <Title
+            text="Cockpit / Head of Aircraft"
+            textAlign="Center"
+            width="100%"
+        />
+
+        <HBox
+            class="gap-4 sapUiSmallMarginTop max-w-md mx-auto bg-gray p-2 rounded border"
+            justifyContent="Center"
+            alignItems="Center"
+        >
+            <layoutData>
+                <FlexItemData growFactor="1" />
+            </layoutData>
+            <HBox
+                class="gap-2"
+                width="100%"
+                wrap="Wrap"
+                items="{/flight/allSeats}"
+                justifyContent="SpaceAround"
+            >
+                <layoutData>
+                    <FlexItemData maxWidth="200px" />
+                </layoutData>
+                <Button
+                    text="{seat}"
+                    icon="{icon}"
+                    class="child"
+                    press="selectSeat"
+                    enabled="{= ${disabled} ? false : true}"
+                />
+            </HBox>
+
+            <VBox
+                height="100%"
+                width="2px"
+                class="bg-blue"
+            />
+
+            <!-- <HBox
+                class="gap-2"
+                width="100%"
+                wrap="Wrap"
+            >
+                <layoutData>
+                    <FlexItemData maxWidth="130px" />
+                </layoutData>
+                <Button icon="sap-icon://border" />
+                <Button
+                    icon="sap-icon://color-fill"
+                    enabled="false"
+                />
+
+                <Button icon="sap-icon://border" />
+            </HBox> -->
+        </HBox>
+
+        <Title
+            text="Rest room / Tail of the Aircraft"
+            textAlign="Center"
+            width="100%"
+            class="sapUiSmallMarginTop"
+        />
+    </VBox>
+</mvc:View>

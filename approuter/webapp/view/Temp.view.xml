@@ -1,0 +1,13 @@
+<mvc:View
+    controllerName=""
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    displayBlock="true"
+    height="100%"
+    busyIndicatorDelay="0"
+>
+    <Page>
+        <mvc:XMLView viewName="ui5.rest.restwithui5.view.PassengerForm" />
+    </Page>
+</mvc:View>

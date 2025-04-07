@@ -1,0 +1,23 @@
+<mvc:View
+    controller="ui5.rest.restwithUi5.controller.Initial"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    displayBlock="true"
+    busyIndicatorDelay="0"
+    height="100%"
+>
+    <Page class="-mt-4">
+        <content>
+            <VBox
+                backgroundDesign="Solid"
+                class="p-2"
+            >
+                <mvc:XMLView viewName="ui5.rest.restwithui5.view.Form" />
+            </VBox>
+            <mvc:XMLView viewName="ui5.rest.restwithui5.view.Underline" />
+
+            <mvc:XMLView viewName="ui5.rest.restwithui5.view.About" />
+        </content>
+    </Page>
+</mvc:View>

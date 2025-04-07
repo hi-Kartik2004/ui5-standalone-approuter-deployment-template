@@ -38,7 +38,7 @@ and re-run the command 11.
     - /addAirport
     - /addFlight
   ### Admin credentials
-    visit /loginAdmin and enter the following credentials to login as admin.
+    visit #/loginAdmin and enter the following credentials to login as admin.
     username = admin
     password = user
     

@@ -1,36 +1,27 @@
-## Application Details
-|               |
-| ------------- |
-|**Generation Date and Time**<br>Thu Mar 20 2025 09:38:56 GMT+0530 (India Standard Time)|
-|**App Generator**<br>@sap/generator-fiori-freestyle|
-|**App Generator Version**<br>1.16.5|
-|**Generation Platform**<br>Visual Studio Code|
-|**Template Used**<br>simple|
-|**Service Type**<br>None|
-|**Service URL**<br>N/A|
-|**Module Name**<br>project1|
-|**Application Title**<br>App Title|
-|**Namespace**<br>|
-|**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.133.0|
-|**Enable Code Assist Libraries**<br>False|
-|**Enable TypeScript**<br>False|
-|**Add Eslint configuration**<br>False|
-
-## project1
-
-An SAP Fiori application.
-
-### Starting the generated app
-
--   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  In order to launch the generated app, simply run the following from the generated app root folder:
-
+# How to use
+1. Clone the repo
+2. replace your webapp folder with the webapp folder in this project
+3. run `npm i` at the same level as the package.json
+4. Make sure you have mbt, mta and cf installed via npm. 
+   - for cf: brew install cloudfoundry/tap/cf-cli@8 (refer https://github.com/cloudfoundry/cli/wiki/V8-CLI-Installation-Guide, for more info)
+   - for mbt: npm i mbt
+   - for mta: npm i mta
+5. cf login
+   - after this enter your email and password, chose you space if you configured the same ib btp cockpit or asked to.
+6. Create a `approuter` folder at the same level as the package.json
+7. Make sure to change the route in the `mta.yaml` file before building the project.
+  ```bash
+      - route: <Unique_Application_Name>.cfapps.eu12.hana.ondemand.com	// please check your BTP Cockpit's landscape for the extension, but if your BTP accunt is BPM subaccount this should work fine.
+  ```
+8. Make sure you're getting the ui5 resource from an cdn. Meaning replace the src="/resources/..." in the index.html to   `src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"`
+9. Run `npm run build:cf` at the same level as the package.json
+10. After the above command you should see a mta_archives folder containing an .mtar file, and also some files and folders in the approuter folder, which was initially empty.
+11. Run `cf deploy `./mta_archives/<name of the mtar file>.mtar` ` at the same level as of the package.json
+12. If you get an error `cf deploy not a valid command or deploy not valid command` run 
+```bash
+    cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org // this is important
+    cf install-plugin multiapps
+    cf install-plugin html5-plugin
 ```
-    npm start
-```
-
-#### Pre-requisites:
-
-1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
 
 

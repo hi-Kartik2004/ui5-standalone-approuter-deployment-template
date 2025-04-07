@@ -7,7 +7,7 @@
    - for mbt: npm i mbt
    - for mta: npm i mta
 5. cf login
-   - after this enter your email and password, chose you space if you configured the same ib btp cockpit or asked to.
+   - after this enter your email and password, choose your space if you configured the same n btp cockpit or asked to.
 6. Create a `approuter` folder at the same level as the package.json
 7. Make sure to change the route in the `mta.yaml` file before building the project.
   ```bash

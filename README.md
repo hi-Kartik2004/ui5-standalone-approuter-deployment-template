@@ -38,7 +38,7 @@ and re-run the command 11.
     - /addAirport
     - /addFlight
   ### Admin credentials
-    visit #/loginAdmin and enter the following credentials to login as admin.
+    visit [/loginAdmin](https://fbs-frontend-v3.cfapps.eu12.hana.ondemand.com/index.html#/loginAdmin) and enter the following credentials to login as admin.
     username = admin
     password = user
     

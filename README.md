@@ -7,11 +7,11 @@
    - for mbt: npm i mbt
    - for mta: npm i mta
 5. cf login
-   - after this enter your email and password, choose your space if you configured the same n btp cockpit or asked to.
+   - after this enter your email and password, choose your space if you configured the same in btp cockpit or asked to.
 6. Create a `approuter` folder at the same level as the package.json
 7. Make sure to change the route in the `mta.yaml` file before building the project.
   ```bash
-      - route: <Unique_Application_Name>.cfapps.eu12.hana.ondemand.com	// please check your BTP Cockpit's landscape for the extension, but if your BTP accunt is BPM subaccount this should work fine.
+      - route: <Unique_Application_Name>.cfapps.eu12.hana.ondemand.com	// please check your BTP Cockpit's landscape for the extension i.e (`cfapps.eu12.hana.ondemand.com`), but if your BTP accunt is BPM subaccount this should work fine.
   ```
 8. Make sure you're getting the ui5 resource from an cdn. Meaning replace the src="/resources/..." in the index.html to   `src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"`
 9. Run `npm run build:cf` at the same level as the package.json
@@ -23,5 +23,6 @@
     cf install-plugin multiapps // not required
     cf install-plugin html5-plugin // not required 
 ```
+and re-run the command 11.
 
 

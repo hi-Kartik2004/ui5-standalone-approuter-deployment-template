@@ -20,8 +20,8 @@
 12. If you get an error `cf deploy not a valid command or deploy not valid command` run 
 ```bash
     cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org // this is important
-    cf install-plugin multiapps
-    cf install-plugin html5-plugin
+    cf install-plugin multiapps // not required
+    cf install-plugin html5-plugin // not required 
 ```
 
 

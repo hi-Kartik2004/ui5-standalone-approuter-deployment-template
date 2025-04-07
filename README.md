@@ -25,4 +25,24 @@
 ```
 and re-run the command 11.
 
+# About the example webapp
+## Installation
+  - Clone this repo // if you wish to contribute, fork then clone :)
+  - npm i // You might need to use "sudo npm i"
+  - npm i --global @ui5/cli // ui5 installation
+  - npm start // to start the development server
+
+## Endpoints on the UI
+  ### Admin Endpoints
+    - /loginAdmin (admin login)
+    - /addAirport
+    - /addFlight
+  ### Admin credentials
+    visit /loginAdmin and enter the following credentials to login as admin.
+    username = admin
+    password = user
+    
+  
+
+
 

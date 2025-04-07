@@ -16,7 +16,7 @@
 8. Make sure you're getting the ui5 resource from an cdn. Meaning replace the src="/resources/..." in the index.html to   `src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"`
 9. Run `npm run build:cf` at the same level as the package.json
 10. After the above command you should see a mta_archives folder containing an .mtar file, and also some files and folders in the approuter folder, which was initially empty.
-11. Run `cf deploy `./mta_archives/<name of the mtar file>.mtar` ` at the same level as of the package.json
+11. Run `cf deploy ./mta_archives/<name of the mtar file>.mtar ` at the same level as of the package.json
 12. If you get an error `cf deploy not a valid command or deploy not valid command` run 
 ```bash
     cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org // this is important

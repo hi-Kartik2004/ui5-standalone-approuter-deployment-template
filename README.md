@@ -8,7 +8,7 @@
    - for mta: npm i mta
 5. cf login
    - after this enter your email and password, choose your space if you configured the same in btp cockpit or asked to.
-6. Create a `approuter` folder at the same level as the package.json
+6. Create a `approuter` folder at the same level as the package.json (ouch, it's already created 😂, cuz you cloned this repo... You can ignore this step)
 7. Make sure to change the route in the `mta.yaml` file before building the project.
   ```bash
       - route: <Unique_Application_Name>.cfapps.eu12.hana.ondemand.com	// please check your BTP Cockpit's landscape for the extension i.e (`cfapps.eu12.hana.ondemand.com`), but if your BTP accunt is BPM subaccount this should work fine.
